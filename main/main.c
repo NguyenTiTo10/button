@@ -26,4 +26,7 @@ void app_main(void)
     gpio_isr_handler_add(BUTTON_GPIO, button_isr_handler, NULL);
 
     ESP_LOGI(TAG, "Interrupt-based button detection initialized.");
+
+    is_button_pressed();
+
 }
