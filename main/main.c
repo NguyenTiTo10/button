@@ -1,6 +1,7 @@
 #include "driver/gpio.h"
 #include "esp_system.h"
 #include "esp_log.h"
+#include "drv_button.h"
 
 #define BUTTON_GPIO GPIO_NUM_0   // Use GPIO0 for the button
 
