@@ -1,5 +1,9 @@
 #include "drv_button.h"
 
+#define BUTTON_GPIO GPIO_NUM_0   // Use GPIO0 for the button
+
+#define TAG "Button ISR"  // Define a tag for logging
+
 // ISR handler for button interrupt
 void IRAM_ATTR button_isr_handler(void *arg)
 {
