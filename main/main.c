@@ -27,6 +27,5 @@ void app_main(void)
 
     ESP_LOGI(TAG, "Interrupt-based button detection initialized.");
 
-    is_button_pressed();
-
+    update_button_state();
 }

@@ -10,7 +10,6 @@
 #define BUTTON_GPIO GPIO_NUM_0    // Use GPIO0 for the button
 
 void update_button_state (void);
-void is_button_pressed (void);
-void IRAM_ATTR button_isr_handler(void *arg);
+void button_isr_handler(void *arg);
 
 #endif 
