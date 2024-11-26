@@ -2,6 +2,13 @@
 
 #define DEBOUNCE_DELAY_MS 50     // Debounce delay in milliseconds
 
+static volatile bool isr_flag;
+
+bool button_isr_flag ()
+{
+  return isr_flag;
+}
+
 // ISR handler for button interrupt
 void IRAM_ATTR button_isr_handler(void *arg)
 {
