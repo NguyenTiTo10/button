@@ -12,5 +12,6 @@ void bsp_gpio_write_pin   (gpio_num_t gpio_num, uint32_t level)
 
 void bsp_gpio_toggle_pin  (gpio_num_t gpio_num)
 {
-  
+  uint32_t state = !(gpio_get_level(gpio_num));
+  gpio_set_level(gpio_num, state);
 }
