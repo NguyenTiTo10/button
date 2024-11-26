@@ -15,27 +15,12 @@ bool button_isr_flag ()
 
 void update_button_state (void)
 {
-  // Get the current time in milliseconds (use your preferred method to get time)
-    uint32_t current_time = esp_timer_get_time() / 1000; // Convert to milliseconds
+  uint32_t current_time = bsp_timer_get_time() / 1000; // Convert to milliseconds
 
-    // Check if enough time has passed since the last debounce check
-    if (current_time - last_debounce_time >= DEBOUNCE_DELAY_MS) {
-        // Update the last debounce time
-        last_debounce_time = current_time;
+  if (isr_flag) 
+    ESP_EARLY_LOGI(TAG, "Button Pressed!");
 
-        // Check the button state
-        if (isr_flag != last_button_state) {
-            // Button state has changed (pressed/released)
-            last_button_state = isr_flag;  // Update the stable state
-
-            // Log the button state change
-            if (last_button_state) {
-                ESP_LOGI(TAG, "Button Pressed!");
-            } else {
-                ESP_LOGI(TAG, "Button Released!");
-            }
-        }
-    }
+  isr_flag = false;
 }
 
 
@@ -45,6 +30,8 @@ void IRAM_ATTR button_isr_handler(void *arg)
   // Read the button state
   if (gpio_get_level(BUTTON_GPIO) == 1)
     isr_flag = true;
-    
+
   update_button_state();
 }
+
+  
