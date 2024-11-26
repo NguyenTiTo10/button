@@ -2,7 +2,7 @@
 
 #define DEBOUNCE_DELAY_MS 50     // Debounce delay in milliseconds
 
-static volatile bool isr_flag;
+static volatile bool isr_flag = false;
 
 bool button_isr_flag ()
 {
@@ -11,7 +11,8 @@ bool button_isr_flag ()
 
 void update_button_state (void)
 {
-  
+  // Get the current time in milliseconds (use your preferred method to get time)
+  uint32_t current_time = bsp_timer_get_time() / 1000; // Convert to milliseconds
 }
 
 
