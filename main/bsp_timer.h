@@ -1,11 +1,10 @@
-#ifndef BSP_I2C_H
-#define BSP_I2C_H
+#include <stdint.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
-#include "driver/i2c.h"
-#include "esp_err.h"
+#ifndef BSP_TIMER_H
+#define BSP_TIMER_H
 
-bool bsp_i2c_is_device_ready(uint16_t dev_addr);
-bool bsp_i2c_write_mem(uint16_t dev_addr, uint16_t mem_addr, uint16_t data);
-
+void bsp_delay (uint32_t time);
 
 #endif
