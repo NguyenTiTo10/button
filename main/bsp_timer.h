@@ -7,6 +7,7 @@
 #define BSP_TIMER_H
 
 void bsp_timer_delay    (uint32_t time);
-void bsp_timer_get_time (void);
+
+int64_t bsp_timer_get_time (void);
 
 #endif
