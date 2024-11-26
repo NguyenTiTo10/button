@@ -4,6 +4,8 @@
 #include "driver/gpio.h"
 #include "esp_system.h"  // Include this for IRAM_ATTR
 #include "esp_log.h"
+#include "bsp_gpio.h"
+#include "bsp_timer.h"
 
 #define BUTTON_GPIO GPIO_NUM_0   // Use GPIO0 for the button
 #define TAG "Button ISR"  // Define a tag for logging

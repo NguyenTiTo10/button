@@ -1,5 +1,6 @@
 #include "drv_button.h"
 
+#define DEBOUNCE_DELAY_MS 50     // Debounce delay in milliseconds
 
 // ISR handler for button interrupt
 void IRAM_ATTR button_isr_handler(void *arg)
