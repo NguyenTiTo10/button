@@ -3,12 +3,12 @@
 #define TAG "Button ISR"          // Define a tag for logging
 #define DEBOUNCE_DELAY_MS 50     // Debounce delay in milliseconds
 
-static uint32_t last_debounce_time  = 0;     // Last debounce time
-static bool     last_button_state   = false;      // Last stable state of the button (true = pressed, false = not pressed)
+static  uint32_t           last_debounce_time  = 0;               // Last debounce time
+static  drv_btn_type_t     last_button_press   = NON_BTN_PRESS;   // Last stable state of the button (true = pressed, false = not pressed)
 
 static uint8_t  count = 1;
 
-drv_btn_type_t drv_detect_btn ()
+drv_btn_type_t drv_detect_btn_press ()
 {
   if (bsp_gpio_read_pin(MID_BTN_GPIO))
     return MID_BTN_PRESSED;
@@ -35,7 +35,6 @@ void update_button_state (void)
 
     bsp_timer_delay(10);
   }
-  
 }
 
 

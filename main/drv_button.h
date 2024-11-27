@@ -11,7 +11,8 @@
 
 typedef enum
 {
-  LEFT_BTN_PRESSED = 0,
+  NON_BTN_PRESS = 0,
+  LEFT_BTN_PRESSED,
   MID_BTN_PRESSED,
   RIGHT_BTN_PRESSED
 } drv_btn_type_t;
