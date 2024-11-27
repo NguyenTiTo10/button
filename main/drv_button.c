@@ -12,10 +12,10 @@ void update_button_state (void)
 
   while (1)
   {
-    if (bsp_ret_isr_flag) 
+    if (bsp_get_isr_flag()) 
       ESP_EARLY_LOGI(TAG, "Button Pressed!");
 
-    isr_flag = false;
+    bsp_set_isr_flag (false);
 
     bsp_timer_delay(200);
   }
