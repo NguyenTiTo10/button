@@ -11,7 +11,10 @@
 
 static const char *TAG = "Button";
 
-esp_err_t config_gpio (void)
+static esp_err_t config_gpio (void);
+
+
+static esp_err_t config_gpio (void)
 {
     // Config GPIO 0
     gpio_config_t io_conf = {

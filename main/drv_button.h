@@ -9,6 +9,12 @@
 
 #define MID_BTN_GPIO  GPIO_NUM_0    // Use GPIO0 for the button
 
+typedef enum
+{
+  ONE_CLICK,
+  DOUBLE_CLICK,
+  HOLD
+} btn_state_press_t;
 
 
 void update_button_state (void);
