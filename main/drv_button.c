@@ -8,6 +8,13 @@ static bool     last_button_state   = false;      // Last stable state of the bu
 
 static uint8_t  count = 1;
 
+drv_btn_type_t drv_detect_btn ()
+{
+  if (!bsp_get_isr_flag())
+  
+    
+}
+
 void update_button_state (void)
 {
   while (1)

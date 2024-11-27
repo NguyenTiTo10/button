@@ -11,17 +11,19 @@
 
 typedef enum
 {
-  ONE_CLICK,
+  LEFT_BTN_PRESSED = 0,
+  MID_BTN_PRESSED,
+  RIGHT_BTN_PRESSED
+} drv_btn_type_t;
+
+typedef enum
+{
+  ONE_CLICK = 0,
   DOUBLE_CLICK,
   HOLD
 } drv_btn_press_state_t;
 
-typedef enum
-{
-  LEFT_BTN_PRESSED,
-  MID_BTN_PRESSED,
-  RIGHT_BTN_PRESSED
-} drv_btn_type_t;
+
 
 
 void update_button_state (void);
