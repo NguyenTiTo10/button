@@ -14,7 +14,14 @@ typedef enum
   ONE_CLICK,
   DOUBLE_CLICK,
   HOLD
-} btn_state_press_t;
+} drv_btn_press_state_t;
+
+typedef enum
+{
+  LEFT_BTN_PRESSED,
+  MID_BTN_PRESSED,
+  RIGHT_BTN_PRESSED
+} drv_btn_type_t;
 
 
 void update_button_state (void);
