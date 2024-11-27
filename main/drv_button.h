@@ -7,6 +7,9 @@
 #include "bsp_gpio.h"
 #include "bsp_timer.h"
 
+#define MID_BTN_GPIO  GPIO_NUM_0    // Use GPIO0 for the button
+
+
 
 void update_button_state (void);
 

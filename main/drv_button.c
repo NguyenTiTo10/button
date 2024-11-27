@@ -10,13 +10,11 @@ static uint8_t  count = 1;
 
 void update_button_state (void)
 {
-  // uint32_t current_time = bsp_timer_get_time() / 1000; // Convert to milliseconds
-
   while (1)
   {
-    if (bsp_get_isr_flag())
+    if (bsp_get_isr_flag() && bsp_gpio_read_pin(MID_BTN_GPIO) == 1)
     {
-      uint32_t current_time = bsp_timer_get_time();
+      uint32_t current_time = bsp_timer_get_time() / 1000;
       if ((current_time - last_debounce_time) > DEBOUNCE_DELAY_MS)
         ESP_EARLY_LOGI(TAG, "Count: %d - Button Pressed!", count);
       
@@ -25,7 +23,7 @@ void update_button_state (void)
       bsp_set_isr_flag (false);
     }
 
-    bsp_timer_delay(200);
+    bsp_timer_delay(10);
   }
   
 }

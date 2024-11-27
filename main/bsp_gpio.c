@@ -21,10 +21,7 @@ void bsp_gpio_toggle_pin  (gpio_num_t gpio_num)
 // ISR handler for button interrupt
 void  bsp_gpio_isr_handler(void *arg)
 {
-  // Read the button state
-  if (gpio_get_level(MID_BTN_GPIO) == 1)
-    isr_flag = true;
-  
+  isr_flag = true;
 }
 
 bool bsp_get_isr_flag (void)
