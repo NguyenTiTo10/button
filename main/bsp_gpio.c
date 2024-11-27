@@ -1,5 +1,7 @@
 #include "bsp_gpio.h"
 
+static volatile bool isr_flag = false;
+
 uint8_t bsp_gpio_read_pin  (gpio_num_t gpio_num)
 {
   return gpio_get_level(gpio_num);
@@ -25,7 +27,8 @@ void  bsp_gpio_isr_handler(void *arg)
   
 }
 
-bool button_isr_flag ()
+bool bsp_get_isr_flag ()
 {
   return isr_flag;
 }
+
