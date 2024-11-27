@@ -24,18 +24,11 @@ void update_button_state (void)
       ESP_EARLY_LOGI(TAG, "Button Pressed!");
 
     isr_flag = false;
+
+    bsp_timer_delay(200);
   }
   
 }
 
-
-// ISR handler for button interrupt
-void  button_isr_handler(void *arg)
-{
-  // Read the button state
-  if (gpio_get_level(MID_BTN_GPIO) == 1)
-    isr_flag = true;
-  
-}
 
   

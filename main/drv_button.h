@@ -10,6 +10,5 @@
 #define MID_BTN_GPIO  GPIO_NUM_0    // Use GPIO0 for the button
 
 void update_button_state (void);
-void button_isr_handler(void *arg);
 
 #endif 

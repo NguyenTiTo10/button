@@ -3,6 +3,8 @@
 #include "esp_log.h"
 #include "drv_button.h"
 
+#include "bsp_gpio.h"
+
 #define BUTTON_GPIO GPIO_NUM_0   // Use GPIO0 for the button
 
 static const char *TAG = "Button";
