@@ -13,7 +13,7 @@ static const char *TAG = "Button";
 
 esp_err_t config_gpio (void)
 {
-    // Configure the button GPIO as input with pull-down resistor
+    // Config GPIO 0
     gpio_config_t io_conf = {
         .pin_bit_mask = (1ULL << BUTTON_GPIO),  // Select GPIO
         .mode = GPIO_MODE_INPUT,               // Set as input
@@ -21,12 +21,16 @@ esp_err_t config_gpio (void)
         .pull_down_en = GPIO_PULLDOWN_ENABLE,  // Enable pull-down
         .intr_type = GPIO_INTR_POSEDGE         // Trigger interrupt on rising edge
     };
-    gpio_config(&io_conf);
+    
+    return gpio_config(&io_conf);
 }
 
 void app_main(void)
 {
-
+    if (config_gpio() == ESP_OK)
+        printf("GPIO config succesfully.\n");
+    else
+        printf("GPIO error.\n");
 
     // Install GPIO ISR service with default flags
     gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
