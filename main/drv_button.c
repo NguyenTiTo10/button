@@ -10,9 +10,12 @@ static uint8_t  count = 1;
 
 drv_btn_type_t drv_detect_btn ()
 {
-  if (!bsp_get_isr_flag())
-  
-    
+  if (bsp_gpio_read_pin(MID_BTN_GPIO))
+    return MID_BTN_PRESSED;
+  else if (bsp_gpio_read_pin(LEFT_BTN_PRESSED))
+    return LEFT_BTN_PRESSED;
+  else if (bsp_gpio_read_pin(RIGHT_BTN_PRESSED))
+    return RIGHT_BTN_PRESSED;
 }
 
 void update_button_state (void)
