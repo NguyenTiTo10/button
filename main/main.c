@@ -25,7 +25,7 @@ void app_main(void)
     gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
 
     // Hook ISR handler for the button GPIO
-    gpio_isr_handler_add(BUTTON_GPIO, button_isr_handler, NULL);
+    gpio_isr_handler_add(BUTTON_GPIO, bsp_gpio_isr_handler, NULL);
 
     ESP_LOGI(TAG, "Interrupt-based button detection initialized.");
 
