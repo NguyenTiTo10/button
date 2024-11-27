@@ -18,10 +18,14 @@ void update_button_state (void)
 {
   // uint32_t current_time = bsp_timer_get_time() / 1000; // Convert to milliseconds
 
-  if (isr_flag) 
-    ESP_EARLY_LOGI(TAG, "Button Pressed!");
+  while (1)
+  {
+    if (isr_flag) 
+      ESP_EARLY_LOGI(TAG, "Button Pressed!");
 
-  isr_flag = false;
+    isr_flag = false;
+  }
+  
 }
 
 
@@ -29,13 +33,8 @@ void update_button_state (void)
 void  button_isr_handler(void *arg)
 {
   // Read the button state
-  if (gpio_get_level(BUTTON_GPIO) == 1)
+  if (gpio_get_level(MID_BTN_GPIO) == 1)
     isr_flag = true;
-
-  if (isr_flag) 
-    ESP_EARLY_LOGI(TAG, "Button Pressed!");
-
-  isr_flag = false;
   
 }
 
