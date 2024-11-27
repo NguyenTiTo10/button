@@ -1,6 +1,8 @@
 #include "driver/gpio.h"
 #include "esp_system.h"
 #include "esp_log.h"
+#include "esp_err.h"
+
 #include "drv_button.h"
 
 #include "bsp_gpio.h"
@@ -9,7 +11,7 @@
 
 static const char *TAG = "Button";
 
-void app_main(void)
+esp_err_t config_gpio (void)
 {
     // Configure the button GPIO as input with pull-down resistor
     gpio_config_t io_conf = {
@@ -20,6 +22,11 @@ void app_main(void)
         .intr_type = GPIO_INTR_POSEDGE         // Trigger interrupt on rising edge
     };
     gpio_config(&io_conf);
+}
+
+void app_main(void)
+{
+
 
     // Install GPIO ISR service with default flags
     gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
