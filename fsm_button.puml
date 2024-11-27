@@ -1,0 +1,32 @@
+@startuml fsm
+' Defining participants
+participant start
+participant init_1_click
+participant init_hold
+participant start_2_clicks
+participant init_2_clicks
+participant full_hold
+
+' Defining the transitions and conditions
+start -> start : p = 1 && t < 30
+start -> init_1_click : p = 1 && 30 <= t
+
+init_1_click -> init_hold : p = 1 && 500 < t
+init_1_click -> start: p = 0 && 300 < t / "1 click"
+init_1_click -> start_2_clicks: p =0 && t <= 300
+
+init_hold -> start : p = 0
+init_hold -> full_hold: p = 1 && 3000 <=t / "Hold"
+
+start_2_clicks -> start : p = 1 && t < 30 
+start_2_clicks -> init_2_clicks : p = 1 && 30 <= t
+
+
+init_2_clicks -> init_hold :  p = 1 && 500 < t
+init_2_clicks -> start :      p = 0 && t < 300
+init_2_clicks -> start :      p = 0 && t > 300 / "2 clicks"
+
+
+full_hold -> start : p = 0 && t > 300 / "Release"
+
+@enduml
