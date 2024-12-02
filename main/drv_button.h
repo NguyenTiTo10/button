@@ -7,7 +7,7 @@
 #include "bsp_gpio.h"
 #include "bsp_timer.h"
 
-#define MAIN_BTN_GPIO     GPIO_NUM_34       
+#define MAIN_BTN_GPIO     GPIO_NUM_32       
 #define LEFT_BTN_GPIO     GPIO_NUM_25
 #define MID_BTN_GPIO      GPIO_NUM_26
 #define RIGHT_BTN_GPIO    GPIO_NUM_27

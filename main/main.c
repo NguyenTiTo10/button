@@ -7,7 +7,7 @@
 
 #include "bsp_gpio.h"
 
-#define MAIN_BTN_GPIO GPIO_NUM_34   // Use GPIO0 for the button
+#define MAIN_BTN_GPIO GPIO_NUM_32   // Use GPIO0 for the button
 
 static const char *TAG = "Button";
 
@@ -16,7 +16,7 @@ static esp_err_t config_gpio (void);
 
 static esp_err_t config_gpio (void)
 {
-    // Config GPIO 34
+    // Config GPIO 32
     gpio_config_t io_conf = {
         .pin_bit_mask = (1ULL << MAIN_BTN_GPIO),  // Select GPIO
         .mode = GPIO_MODE_INPUT,               // Set as input
@@ -39,7 +39,7 @@ void app_main(void)
     gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
 
     // Hook ISR handler for the button GPIO
-    gpio_isr_handler_add(BUTTON_GPIO, bsp_gpio_isr_handler, NULL);
+    gpio_isr_handler_add(MAIN_BTN_GPIO, bsp_gpio_isr_handler, NULL);
 
     ESP_LOGI(TAG, "Interrupt-based button detection initialized.");
 
