@@ -4,7 +4,6 @@
 #define DEBOUNCE_DELAY_MS 50     // Debounce delay in milliseconds
 
 static  uint32_t           last_debounce_time  = 0;               // Last debounce time
-static  drv_btn_type_t     last_button_press   = NON_BTN_PRESSED;   // Last stable state of the button (true = pressed, false = not pressed)
 static  uint32_t           current_time;
 static  uint32_t           elasped_time;
 
@@ -32,6 +31,9 @@ drv_btn_type_t drv_btn_detect_press (void)
 
   if (bsp_gpio_read_pin(RIGHT_BTN_GPIO) == 1)
     return RIGHT_BTN_PRESSED;
+
+  else
+    return -1;
 }
 
 

@@ -19,9 +19,8 @@ static esp_err_t config_gpio (void);
 
 static esp_err_t config_gpio (void)
 {
-    // Config GPIO 32
-    gpio_config_t io_conf = {
-        .pin_bit_mask = (1ULL << MAIN_BTN_GPIO),  // Select GPIO
+    gpio_config_t io_conf = 
+    {
         .mode = GPIO_MODE_INPUT,               // Set as input
         .pull_up_en = GPIO_PULLUP_DISABLE,     // Disable pull-up
         .pull_down_en = GPIO_PULLDOWN_ENABLE,  // Enable pull-down
