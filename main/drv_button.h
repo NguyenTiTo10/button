@@ -7,11 +7,12 @@
 #include "bsp_gpio.h"
 #include "bsp_timer.h"
 
-#define MID_BTN_GPIO  GPIO_NUM_0    // Use GPIO0 for the button
+#define MAIN_BTN_GPIO  GPIO_NUM_34    // Use GPIO0 for the button
 
 typedef enum
 {
   NON_BTN_PRESS = 0,
+  MAIN_BTN_PRESS,
   LEFT_BTN_PRESSED,
   MID_BTN_PRESSED,
   RIGHT_BTN_PRESSED
