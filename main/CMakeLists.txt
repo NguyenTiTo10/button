@@ -1,2 +1,7 @@
-idf_component_register(SRCS "bsp_timer.c" "drv_button.c" "bsp_gpio.c" "main.c"
-                    INCLUDE_DIRS ".")
+idf_component_register(SRCS "bsp/bsp_timer.c"   "bsp/bsp_gpio.c"
+                            
+                            "driver/drv_button.c"  
+                            
+                            "main.c"
+
+                    INCLUDE_DIRS "." "bsp" "driver")
