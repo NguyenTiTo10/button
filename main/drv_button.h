@@ -20,9 +20,8 @@ typedef enum
 
 typedef enum
 {
-  ONE_CLICK = 0,
-  DOUBLE_CLICK,
-  HOLD
+  NO_PRESS = 0,
+  PRESSED
 } drv_btn_press_state_t;
 
 
