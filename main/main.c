@@ -28,7 +28,26 @@ static esp_err_t config_gpio (void)
         .intr_type = GPIO_INTR_POSEDGE         // Trigger interrupt on rising edge
     };
     
-    return gpio_config(&io_conf);
+
+    // Configuring GPIO32
+    io_conf.pin_bit_mask = (1ULL << MAIN_BTN_GPIO);  // Select GPIO 32
+    esp_err_t err = gpio_config(&io_conf);
+    if (err != ESP_OK) return err;
+
+    // Configuring GPIO25
+    io_conf.pin_bit_mask = (1ULL << LEFT_BTN_GPIO);  // Select GPIO 25
+    err = gpio_config(&io_conf);
+    if (err != ESP_OK) return err;
+
+    // Configuring GPIO26
+    io_conf.pin_bit_mask = (1ULL << MID_BTN_GPIO);  // Select GPIO 26
+    err = gpio_config(&io_conf);
+    if (err != ESP_OK) return err;
+
+    // Configuring GPIO27
+    io_conf.pin_bit_mask = (1ULL << RIGHT_BTN_GPIO);  // Select GPIO 27
+    err = gpio_config(&io_conf);
+    return err;
 }
 
 void app_main(void)
