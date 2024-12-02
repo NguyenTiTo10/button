@@ -31,6 +31,6 @@ typedef enum
 
 
 
-void update_button_state (void);
+void drv_btn_update_state (void);
 
 #endif 

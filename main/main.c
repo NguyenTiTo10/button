@@ -82,5 +82,5 @@ void app_main(void)
     
     
 
-    update_button_state();
+    drv_btn_update_state();
 }

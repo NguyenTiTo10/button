@@ -34,7 +34,9 @@ drv_btn_type_t drv_btn_detect_press ()
     return RIGHT_BTN_PRESSED;
 }
 
-drv_btn_type_t update_button_state (void)
+
+
+drv_btn_type_t drv_btn_update_state (void)
 {
   while (1)
   {
