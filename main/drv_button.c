@@ -29,6 +29,9 @@ drv_btn_type_t drv_btn_detect_press (void)
   if (bsp_gpio_read_pin(LEFT_BTN_GPIO) == 1)
     return LEFT_BTN_PRESSED;
 
+  if (bsp_gpio_read_pin(MID_BTN_GPIO) == 1)
+    return MID_BTN_PRESSED;
+
   if (bsp_gpio_read_pin(RIGHT_BTN_GPIO) == 1)
     return RIGHT_BTN_PRESSED;
 
@@ -52,7 +55,7 @@ void drv_btn_update_state (void)
       ESP_EARLY_LOGI(TAG, "Count: %d - Left Button Pressed!", count);
       break;
     case MID_BTN_PRESSED:
-      ESP_EARLY_LOGI(TAG, "Count: %d - Left Button Pressed!", count);
+      ESP_EARLY_LOGI(TAG, "Count: %d - Mid Button Pressed!", count);
       break;
     case RIGHT_BTN_PRESSED:
       ESP_EARLY_LOGI(TAG, "Count: %d - Right Button Pressed!", count);
