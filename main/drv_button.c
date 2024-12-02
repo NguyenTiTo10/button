@@ -10,6 +10,7 @@ static uint8_t  count = 1;
 
 drv_btn_type_t drv_detect_btn_press ()
 {
+  
   if (bsp_gpio_read_pin(MAIN_BTN_GPIO))
     return MAIN_BTN_PRESSED;
 
