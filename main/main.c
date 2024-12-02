@@ -7,7 +7,7 @@
 
 #include "bsp_gpio.h"
 
-#define BUTTON_GPIO GPIO_NUM_0   // Use GPIO0 for the button
+#define MAIN_BTN_GPIO GPIO_NUM_34   // Use GPIO0 for the button
 
 static const char *TAG = "Button";
 
@@ -16,9 +16,9 @@ static esp_err_t config_gpio (void);
 
 static esp_err_t config_gpio (void)
 {
-    // Config GPIO 0
+    // Config GPIO 34
     gpio_config_t io_conf = {
-        .pin_bit_mask = (1ULL << BUTTON_GPIO),  // Select GPIO
+        .pin_bit_mask = (1ULL << MAIN_BTN_GPIO),  // Select GPIO
         .mode = GPIO_MODE_INPUT,               // Set as input
         .pull_up_en = GPIO_PULLUP_DISABLE,     // Disable pull-up
         .pull_down_en = GPIO_PULLDOWN_ENABLE,  // Enable pull-down
