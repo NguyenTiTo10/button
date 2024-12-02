@@ -29,9 +29,8 @@ bool bsp_get_isr_flag (void)
   return isr_flag;
 }
 
-bool bsp_set_isr_flag (bool state)
+void bsp_set_isr_flag (bool state)
 {
   isr_flag = state;
-  return (isr_flag == state) ? true : false;
 }
 
