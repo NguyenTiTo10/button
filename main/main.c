@@ -7,10 +7,10 @@
 
 #include "bsp_gpio.h"
 
-#define MAIN_BTN_GPIO GPIO_NUM_32   // Use GPIO0 for the button
-#define LEFT_BTN_GPIO     GPIO_NUM_25
-#define MID_BTN_GPIO      GPIO_NUM_26
-#define RIGHT_BTN_GPIO    GPIO_NUM_27
+#define     MAIN_BTN_GPIO       GPIO_NUM_32   // Use GPIO0 for the button
+#define     LEFT_BTN_GPIO       GPIO_NUM_25
+#define     MID_BTN_GPIO        GPIO_NUM_26
+#define     RIGHT_BTN_GPIO      GPIO_NUM_27
 
 static const char *TAG = "Button";
 
