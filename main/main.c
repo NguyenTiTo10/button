@@ -37,17 +37,38 @@ static esp_err_t config_gpio (void)
     // Configuring GPIO25
     io_conf.pin_bit_mask = (1ULL << LEFT_BTN_GPIO);  // Select GPIO 25
     err = gpio_config(&io_conf);
-    if (err != ESP_OK) return err;
+    if (err != ESP_OK) 
+        return err;
 
     // Configuring GPIO26
     io_conf.pin_bit_mask = (1ULL << MID_BTN_GPIO);  // Select GPIO 26
     err = gpio_config(&io_conf);
-    if (err != ESP_OK) return err;
+    if (err != ESP_OK) 
+        return err;
 
     // Configuring GPIO27
     io_conf.pin_bit_mask = (1ULL << RIGHT_BTN_GPIO);  // Select GPIO 27
     err = gpio_config(&io_conf);
-    return err;
+        return err;
+}
+
+static esp_err_t config_isr_gpio (void)
+{
+    esp_err_t ret;
+
+    // Install GPIO ISR service with default flags
+    ret = gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
+    if (ret != ESP_OK)
+        return ret;
+
+    // Hook ISR handler for the button GPIO
+    ret = gpio_isr_handler_add(MAIN_BTN_GPIO, bsp_gpio_isr_handler, NULL);
+    if (ret != ESP_OK)
+        return ret;
+
+    ESP_LOGI(TAG, "Interrupt-based button detection initialized.");
+
+    return ESP_OK;
 }
 
 void app_main(void)
@@ -57,13 +78,9 @@ void app_main(void)
     else
         printf("GPIO error.\n");
 
-    // Install GPIO ISR service with default flags
-    gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
-
-    // Hook ISR handler for the button GPIO
-    gpio_isr_handler_add(MAIN_BTN_GPIO, bsp_gpio_isr_handler, NULL);
-
-    ESP_LOGI(TAG, "Interrupt-based button detection initialized.");
+    config_isr_gpio();
+    
+    
 
     update_button_state();
 }
