@@ -51,14 +51,18 @@ void drv_btn_update_state (void)
     case LEFT_BTN_PRESSED:
       ESP_EARLY_LOGI(TAG, "Count: %d - Left Button Pressed!", count);
       break;
+    case MID_BTN_PRESSED:
+      ESP_EARLY_LOGI(TAG, "Count: %d - Left Button Pressed!", count);
+      break;
     case RIGHT_BTN_PRESSED:
       ESP_EARLY_LOGI(TAG, "Count: %d - Right Button Pressed!", count);
       break;
     default:
+      count --;
       break;
   }
   
-  count += 1;
+  count ++;
 }
 
 

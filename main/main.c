@@ -61,9 +61,11 @@ static esp_err_t config_isr_gpio (void)
         return ret;
 
     // Hook ISR handler for the button GPIO
-    ret = gpio_isr_handler_add(MAIN_BTN_GPIO, bsp_gpio_isr_handler, NULL);
-    if (ret != ESP_OK)
-        return ret;
+    gpio_isr_handler_add(MAIN_BTN_GPIO, bsp_gpio_isr_handler, NULL);
+    gpio_isr_handler_add(LEFT_BTN_GPIO, bsp_gpio_isr_handler, NULL);
+    gpio_isr_handler_add(MID_BTN_GPIO, bsp_gpio_isr_handler, NULL);
+    gpio_isr_handler_add(RIGHT_BTN_GPIO, bsp_gpio_isr_handler, NULL);
+
 
     ESP_LOGI(TAG, "Interrupt-based button detection initialized.");
 
