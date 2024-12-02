@@ -42,17 +42,21 @@ void drv_btn_update_state (void)
 {
   drv_btn_type_t btn_state = drv_btn_detect_press();
 
-  if (btn_state == NON_BTN_PRESSED)
-    return;
-  
-  if (btn_state == MAIN_BTN_PRESSED)
-    ESP_EARLY_LOGI(TAG, "Count: %d - Main Button Pressed!", count);
-  
-  else if (btn_state == LEFT_BTN_PRESSED)
-    ESP_EARLY_LOGI(TAG, "Count: %d - Left Button Pressed!", count);
-
-  else if (btn_state == RIGHT_BTN_PRESSED)
-    ESP_EARLY_LOGI(TAG, "Count: %d - Left Button Pressed!", count);
+  // Logging the button press
+  switch (btn_state) 
+  {
+    case MAIN_BTN_PRESSED:
+      ESP_EARLY_LOGI(TAG, "Count: %d - Main Button Pressed!", count);
+      break;
+    case LEFT_BTN_PRESSED:
+      ESP_EARLY_LOGI(TAG, "Count: %d - Left Button Pressed!", count);
+      break;
+    case RIGHT_BTN_PRESSED:
+      ESP_EARLY_LOGI(TAG, "Count: %d - Right Button Pressed!", count);
+      break;
+    default:
+      break;
+  }
   
   count += 1;
 }
