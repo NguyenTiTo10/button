@@ -29,8 +29,7 @@ typedef enum
 } drv_btn_press_state_t;
 
 
-
-
+drv_btn_type_t drv_btn_detect_press (void);
 void drv_btn_update_state (void);
 
 #endif 

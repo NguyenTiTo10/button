@@ -81,6 +81,12 @@ void app_main(void)
     config_isr_gpio();
     
     
+    while (1)
+    {
+        drv_btn_detect_press();
+        drv_btn_update_state();
 
-    drv_btn_update_state();
+        bsp_timer_delay(10);
+    }
+    
 }
