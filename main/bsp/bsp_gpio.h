@@ -2,8 +2,6 @@
 #define BSP_GPIO_H
 
 #include "driver/gpio.h"
-#include "esp_system.h"
-#include "esp_log.h"
 
 
 uint8_t bsp_gpio_read_pin    (gpio_num_t gpio_num);
