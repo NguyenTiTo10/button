@@ -79,7 +79,6 @@ void app_main(void)
 
     config_isr_gpio();
     
-    
     while (1)
     {
         drv_btn_update_state();

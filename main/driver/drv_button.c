@@ -3,19 +3,12 @@
 #define TAG "Button ISR"          // Define a tag for logging
 #define DEBOUNCE_DELAY_MS 50     // Debounce delay in milliseconds
 
-static  uint32_t           last_debounce_time;               // Last debounce time
+static  uint32_t           last_debounce_time = 0;               // Last debounce time
 static  uint32_t           current_time;
 static  uint32_t           elasped_time;
 
 static  uint8_t             count = 1;
 
-void drv_btn_init()
-{
-  last_debounce_time = 0;
-  current_time = 0;
-  elasped_time = 0;
-  count = 1;
-}
 
 drv_btn_type_t drv_btn_detect_press (void)
 {
